@@ -48,6 +48,8 @@
 #include <opencv2/videoio/videoio.hpp>  // Video write
 #include <opencv2/videoio/videoio_c.h>  // Video write
 
+#include <ImageManipulationHelpers.h>
+
 #pragma managed
 
 #pragma make_public(cv::Mat)
@@ -65,6 +67,11 @@ namespace OpenCVWrappers {
 	private:
 
 		cv::Mat* mat;
+
+		RawImage()
+		{
+			mat = new cv::Mat();
+		}
 
 	public:
 
@@ -101,6 +108,16 @@ namespace OpenCVWrappers {
 		RawImage(const cv::Mat& m)
 		{
 			mat = new cv::Mat(m.clone());
+		}
+
+		RawImage(RawImage^ img)
+		{
+			mat = new cv::Mat(img->Mat.clone());
+		}
+
+		RawImage(int width, int height, int type, System::IntPtr scan, System::UInt64 step)
+		{
+			mat = new cv::Mat(height, width, type, scan.ToPointer(), step);
 		}
 
 		void Mirror()
@@ -196,5 +213,11 @@ namespace OpenCVWrappers {
 			return gcnew WriteableBitmap(Width, Height, 72, 72, Format, nullptr);
 		}
 
+		RawImage^ GetGreyImage()
+		{
+			RawImage^ grey = gcnew RawImage();
+			Utilities::ConvertToGrayscale_8bit(*mat, grey->Mat);
+			return grey;
+		}
 	};
 }
