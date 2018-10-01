@@ -90,6 +90,12 @@
     <ClInclude Include="include\SVR_patch_expert.h">
       <Filter>headers</Filter>
     </ClInclude>
+    <ClInclude Include="include\ImageManipulationHelpers.h">
+      <Filter>headers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\RotationHelpers.h">
+      <Filter>headers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="headers">
