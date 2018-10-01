@@ -102,3 +102,5 @@ lib/local/CppInerop/Debug/
 *.user
 /OpenFace.VC.db
 /OpenFace.VC.VC.opendb
+/OpenFace.sln.GhostDoc.xml
+/lib/local/CppInterop/x64
