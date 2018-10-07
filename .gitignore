@@ -104,3 +104,6 @@ lib/local/CppInerop/Debug/
 /OpenFace.VC.VC.opendb
 /OpenFace.sln.GhostDoc.xml
 /lib/local/CppInterop/x64
+/.vs/OpenFace_vs2017/v15
+/.vs/config/applicationhost.config
+/UpgradeLog.htm
