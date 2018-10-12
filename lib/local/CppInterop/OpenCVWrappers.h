@@ -105,6 +105,13 @@ namespace OpenCVWrappers {
 			}
 		}
 
+		static RawImage^ ReadFromFile(System::String^ filePath)
+		{
+			std::string imagePath = msclr::interop::marshal_as<std::string>(filePath);
+			cv::Mat frame = cv::imread(imagePath, cv::IMREAD_COLOR);
+			return gcnew RawImage(frame);
+		}
+
 		RawImage(const cv::Mat& m)
 		{
 			mat = new cv::Mat(m.clone());
